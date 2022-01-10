@@ -30,6 +30,8 @@
     "react-router-dom": "^6.0.2",
     "react-router-guards": "^1.0.2",
     "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
     "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.7",
     "rxjs": "^7.0.0",

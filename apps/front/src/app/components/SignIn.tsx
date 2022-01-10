@@ -13,9 +13,10 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { useParams, useNavigate } from 'react-router-dom';
-
-import http from '../api/http';
+import { Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../redux/actions/auth';
+import { RootState } from '../redux/store';
 
 function Copyright(props: any) {
   return (
@@ -44,14 +45,18 @@ const theme = createTheme();
 export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const { isLoggedIn } = useSelector((state: RootState) => state.auth);
+
+  if (isLoggedIn) {
+    return <Navigate to="/dashboard" />;
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    http.post('/auth/login', { email, password }).then((data: any) => {
-      navigate('/dashboard');
-      localStorage.setItem('token', data.auth_token);
-    });
+    dispatch(login(email, password));
   };
 
   return (

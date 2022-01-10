@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
+import auth from './auth';
+import message from './message';
 
-function todoApp(state = { type: "hola" }, action) {
-  // Por ahora, no maneja ninguna acción
-  // y solo devuelve el estado que recibimos.
-  return state
-}
 
 export default combineReducers({
-  todoApp
+  auth,
+  message
 });

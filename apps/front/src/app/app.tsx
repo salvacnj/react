@@ -1,9 +1,8 @@
-import styles from './app.module.scss';
 import SignIn from './components/SignIn';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Dashboard from './components/dashboard/dashboard';
 
-import { GuardProvider, GuardedRoute } from 'react-router-guards';
+import ProtectedRoute from './components/ProtectedRoute';
 
 export function App() {
   return (

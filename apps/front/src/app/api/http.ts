@@ -10,7 +10,7 @@ axiosInstance.interceptors.request.use(
   (config) => {
     const apiToken = sessionStorage.getItem('token');
     if (apiToken) {
-      config.headers = { 'x-rapidapi-key': apiToken };
+      config.headers = { 'Authorization': `Bearer ${apiToken}` };
     }
     return config;
   },
